@@ -319,9 +319,12 @@
             <label for="rsvp-phone">Phone *</label>
             <input type="tel" id="rsvp-phone" name="phone" required placeholder="(555) 123-4567" />
           </div>
+        </div>
+
+        <div class="form-row">
           <div class="form-group">
-            <label for="rsvp-guests">Number of Guests *</label>
-            <select id="rsvp-adult-guests" name="guests" required>
+            <label for="rsvp-adult-guests">Adults *</label>
+            <select id="rsvp-adult-guests" name="adultGuests" required>
               <option value="">Select</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -329,8 +332,11 @@
               <option value="4">4</option>
               <option value="5+">5+</option>
             </select>
-            <select id="rsvp-kids-guests" name="guests" required>
-              <option value="">Select</option>
+          </div>
+          <div class="form-group">
+            <label for="rsvp-kids-guests">Kids</label>
+            <select id="rsvp-kids-guests" name="kidsGuests">
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
