@@ -48,7 +48,7 @@ const CONFIG = {
     // ----------------------------------------------------------------
     // HOW TO SET UP:
     // 1. Create a Google Sheet, add headers in row 1:
-    //    Timestamp | Name | Email | Phone | Guests | Attending | Message
+    //    Timestamp | Name | Email | Phone | Adults | Kids | Attending | Message
     // 2. Extensions → Apps Script → paste the doPost() function from the README
     // 3. Deploy → New deployment → Web app
     //    (Execute as: Me, Who has access: Anyone)
