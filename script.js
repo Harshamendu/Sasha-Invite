@@ -620,7 +620,7 @@ function initRSVP() {
     const data = Object.fromEntries(formData.entries());
 
     // Validate required fields
-    if (!data.name || !data.phone || !data.attending) {
+    if (!data.name || !data.phone || !data.attending || !data.adultGuests) {
       highlightInvalid(form);
       return;
     }
@@ -641,7 +641,8 @@ function initRSVP() {
           name: data.name || "",
           email: data.email || "",
           phone: data.phone || "",
-          guests: data.guests || "",
+          adultGuests: data.adultGuests || "",
+          kidsGuests: data.kidsGuests || "0",
           attending: data.attending === "yes" ? "Joyfully Accept" : "Regretfully Decline",
           message: data.message || "",
           callback: "__rsvpCallback",
