@@ -350,15 +350,15 @@
           <div class="form-group full-width">
             <label for="rsvp-attending">Will you be attending? *</label>
             <div class="radio-group">
-              <label class="radio-label">
+              <label class="radio-label radio-accept">
                 <input type="radio" name="attending" value="yes" required />
                 <span class="radio-custom"></span>
-                Joyfully Accept
+                <span class="radio-text">Joyfully Accept</span>
               </label>
-              <label class="radio-label">
+              <label class="radio-label radio-decline">
                 <input type="radio" name="attending" value="no" />
                 <span class="radio-custom"></span>
-                Regretfully Decline
+                <span class="radio-text">Regretfully Decline</span>
               </label>
             </div>
           </div>
@@ -375,6 +375,10 @@
           <span class="btn-text">Send RSVP</span>
           <span class="btn-loading" hidden>Sending...</span>
         </button>
+
+        <div id="rsvp-validation" class="rsvp-feedback validation" hidden>
+          <p id="rsvp-validation-msg"></p>
+        </div>
 
         <div id="rsvp-success" class="rsvp-feedback success" hidden>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

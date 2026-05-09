@@ -601,6 +601,8 @@ function initRSVP() {
   const form = document.getElementById("rsvp-form");
   const successEl = document.getElementById("rsvp-success");
   const errorEl = document.getElementById("rsvp-error");
+  const validationEl = document.getElementById("rsvp-validation");
+  const validationMsg = document.getElementById("rsvp-validation-msg");
   const { rsvp } = CONFIG;
 
   if (!rsvp.enabled) {
@@ -620,10 +622,25 @@ function initRSVP() {
     const data = Object.fromEntries(formData.entries());
 
     // Validate required fields
-    if (!data.name || !data.phone || !data.attending || !data.adultGuests) {
+    const missing = [];
+    if (!data.name) missing.push("Full Name");
+    if (!data.phone) missing.push("Phone");
+    if (!data.attending) missing.push("Will you be attending?");
+    if (!data.adultGuests) missing.push("Number of Adults");
+
+    if (missing.length > 0) {
       highlightInvalid(form);
+      validationMsg.textContent =
+        "Please fill in the following required field" +
+        (missing.length > 1 ? "s" : "") +
+        ": " +
+        missing.join(", ") + ".";
+      validationEl.hidden = false;
+      validationEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
       return;
     }
+
+    validationEl.hidden = true;
 
     // Show loading
     btnText.hidden = true;
@@ -631,6 +648,7 @@ function initRSVP() {
     submitBtn.disabled = true;
     successEl.hidden = true;
     errorEl.hidden = true;
+    validationEl.hidden = true;
 
     try {
       let submitted = false;
@@ -709,13 +727,23 @@ function initRSVP() {
 
 
 function highlightInvalid(form) {
+  const validationEl = document.getElementById("rsvp-validation");
   form.querySelectorAll("[required]").forEach((field) => {
-    if (!field.value || (field.type === "radio" && !form.querySelector(`[name="${field.name}"]:checked`))) {
+    const isEmpty = field.type === "radio"
+      ? !form.querySelector(`[name="${field.name}"]:checked`)
+      : !field.value;
+    if (isEmpty) {
       field.style.borderColor = "#b43c3c";
       field.addEventListener(
         "input",
         () => {
           field.style.borderColor = "";
+          const anyStillInvalid = Array.from(form.querySelectorAll("[required]")).some((f) =>
+            f.type === "radio"
+              ? !form.querySelector(`[name="${f.name}"]:checked`)
+              : !f.value
+          );
+          if (!anyStillInvalid) validationEl.hidden = true;
         },
         { once: true }
       );
