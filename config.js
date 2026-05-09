@@ -21,7 +21,7 @@ const CONFIG = {
     googleMapsUrl: "https://maps.google.com/?q=1656+Buford+Hwy+Cumming+GA+30041",
     googleMapsEmbed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.5!2d-84.1282!3d34.2071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f59e1f1c0eaaab%3A0x0!2zMzTCsDEyJzI1LjYiTiA4NMKwMDcnNDEuNSJX!5e0!3m2!1sen!2sus!4v1234567890",
-    dressCode: "Semi-formal / Festive attire",
+    dressCode: "Festive Indian",
   },
 
   // Host Details
@@ -53,8 +53,7 @@ const CONFIG = {
     // 3. Deploy → New deployment → Web app
     //    (Execute as: Me, Who has access: Anyone)
     // 4. Paste the Web App URL below:
-    appsScriptUrl: "https://script.google.com/macros/s/AKfycbz93aSIfbjdLtkhPyii235WvH85a1KieZo4B3H3UwIcKnOY9pltMz536h7bUPsF5NUw/exec",          // e.g. "https://script.google.com/macros/s/AKfyc.../exec"
-
+    appsScriptUrl: "https://script.google.com/macros/s/AKfycbzVkC8vb7ASSAfMZF__PjAxD7GvBAgVWkrDCGK9QYNl8XVn0CbqS5NH53FUVvPMomFE/exec",
     // Fallback options
     apiEndpoint: "",            // AWS API Gateway + Lambda
     formspreeId: "",            // Formspree form ID
